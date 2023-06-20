@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_restaurant
+      author: artur
+      changes:
+        - createTable:
+            tableName: RESTAURANT
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                  defaultValueSequenceNext: 'restaurant_sequence'
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: cuisine
+                  type: varchar(255)
+              - column:
+                  name: location
+                  type: varchar(255)
+              - column:
+                  name: capacity
+                  type: int
+              - column:
+                  name: star
+                  type: int2

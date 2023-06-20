@@ -53,8 +53,8 @@ public class Dish implements Serializable {
     @Column
     private boolean isDietaryRestriction;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
     @Override

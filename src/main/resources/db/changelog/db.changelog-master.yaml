@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create_dish_sequence.yaml
+  - include:
+      file: db/changelog/changeset/create_restaurant_sequence.yaml
+  - include:
+      file: db/changelog/changeset/create_restaurant.yaml
+  - include:
+      file: db/changelog/changeset/create_dish.yaml

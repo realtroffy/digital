@@ -15,8 +15,4 @@ public interface RestaurantService {
     void deleteById(long id);
 
     void update(long id, RestaurantDto forUpdate);
-
-    void addDishToRestaurant(long restaurantId, long dishId);
-
-    void deleteDishFromRestaurant(long restaurantId, long dishId);
 }

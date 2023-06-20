@@ -1,8 +1,6 @@
 package ru.digitalchief.service;
 
 import ru.digitalchief.dto.DishDto;
-import ru.digitalchief.dto.RestaurantDto;
-
 import java.util.List;
 
 public interface DishService {

@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Objects;
 
 import static javax.persistence.CascadeType.ALL;
-import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table
@@ -58,10 +57,10 @@ public class Restaurant implements Serializable {
     private Integer capacity;
 
     @Column
-    private Double stars;
+    private Byte star;
 
     @ToString.Exclude
-    @OneToMany(fetch = EAGER, mappedBy = "restaurant", cascade = ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "restaurant", cascade = ALL, orphanRemoval = true)
     private List<Dish> dishes = new ArrayList<>();
 
     public void addDishToRestaurant(Dish dish) {
@@ -69,9 +68,6 @@ public class Restaurant implements Serializable {
         dish.setRestaurant(this);
     }
 
-    public void deleteDishFromRestaurant(Dish dish){
-        dishes.remove(dish);
-    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,11 +77,11 @@ public class Restaurant implements Serializable {
                 && cuisine == that.cuisine
                 && Objects.equals(location, that.location)
                 && Objects.equals(capacity, that.capacity)
-                && Objects.equals(stars, that.stars);
+                && Objects.equals(star, that.star);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, cuisine, location, capacity, stars);
+        return Objects.hash(name, cuisine, location, capacity, star);
     }
 }

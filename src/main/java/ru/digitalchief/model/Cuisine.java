@@ -1,8 +1,10 @@
 package ru.digitalchief.model;
 
-public enum Cuisine {
+import java.io.Serializable;
+
+public enum Cuisine implements Serializable {
   EASTERN,
   ITALIAN,
   FRENCH,
-  MEXICAN;
+  MEXICAN
 }

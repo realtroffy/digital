@@ -2,7 +2,6 @@ package ru.digitalchief.dto;
 
 import lombok.Data;
 import ru.digitalchief.model.Cuisine;
-import ru.digitalchief.validator.cuisine.ValidCuisine;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -17,7 +16,6 @@ public class RestaurantDto {
   @Size(min = 5, max = 50, message = "Name length should be between 5 and 50 characters")
   private String name;
 
-  @ValidCuisine(message = "Valid cuisine: EASTERN, ITALIAN, FRENCH, MEXICAN")
   private Cuisine cuisine;
 
   @Size(min = 5, max = 50, message = "Location length should be between 5 and 50 characters")
@@ -28,5 +26,5 @@ public class RestaurantDto {
 
   @Min(value = 0, message = "Value must be between 0 to 3")
   @Max(value = 3, message = "Value must be between 0 to 3")
-  private Byte stars;
+  private Byte star;
 }
