@@ -8,13 +8,15 @@ public interface RestaurantService {
 
     RestaurantDto getById(long id);
 
-    RestaurantDto save(RestaurantDto eventDto);
+    RestaurantDto save(RestaurantDto restaurantDto);
 
     List<RestaurantDto> getAll();
 
     void deleteById(long id);
 
-    void update(long id, RestaurantDto eventDto);
+    void update(long id, RestaurantDto forUpdate);
 
-    void addDishToRestaurant(long dishId, long restaurantId);
+    void addDishToRestaurant(long restaurantId, long dishId);
+
+    void deleteDishFromRestaurant(long restaurantId, long dishId);
 }

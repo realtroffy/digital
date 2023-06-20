@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,68 +27,73 @@ import java.util.Objects;
 @Setter
 public class Dish implements Serializable {
 
-  private static final long serialVersionUID = -2156626744976317146L;
+    private static final long serialVersionUID = -2156626744976317146L;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dish_generator")
-  @SequenceGenerator(
-      name = "dish_generator",
-      sequenceName = "dish_sequence",
-      allocationSize = 3)
-  @Column
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dish_generator")
+    @SequenceGenerator(
+            name = "dish_generator",
+            sequenceName = "dish_sequence",
+            allocationSize = 3)
+    @Column
+    private Long id;
 
-  @Column private String name;
+    @Column
+    private String name;
 
-  @Column private String description;
+    @Column
+    private String description;
 
-  @Column private BigDecimal price;
+    @Column
+    private BigDecimal price;
 
-  @Column private boolean isVegetarian;
+    @Column
+    private boolean isVegetarian;
 
-  @Column private boolean isDietaryRestriction;
+    @Column
+    private boolean isDietaryRestriction;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn
-  private Restaurant restaurant;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    private Restaurant restaurant;
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    Dish dish = (Dish) o;
-    return isVegetarian == dish.isVegetarian
-        && isDietaryRestriction == dish.isDietaryRestriction
-        && Objects.equals(name, dish.name)
-        && Objects.equals(description, dish.description)
-        && Objects.equals(price, dish.price)
-        && Objects.equals(restaurant, dish.restaurant);
-  }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return isVegetarian == dish.isVegetarian
+                && isDietaryRestriction == dish.isDietaryRestriction
+                && Objects.equals(name, dish.name)
+                && Objects.equals(description, dish.description)
+                && Objects.equals(price, dish.price)
+                && Objects.equals(restaurant, dish.restaurant);
+    }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, description, price, isVegetarian, isDietaryRestriction, restaurant);
-  }
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, description, price, isVegetarian, isDietaryRestriction, restaurant);
+    }
 
-  @Override
-  public String toString() {
-    return "Dish{"
-        + "id="
-        + id
-        + ", name='"
-        + name
-        + '\''
-        + ", description='"
-        + description
-        + '\''
-        + ", price="
-        + price
-        + ", isVegetarian="
-        + isVegetarian
-        + ", isDietaryRestriction="
-        + isDietaryRestriction
-        + ", restaurant="
-        + restaurant
-        + '}';
-  }
+    @Override
+    public String toString() {
+        return "Dish{"
+                + "id="
+                + id
+                + ", name='"
+                + name
+                + '\''
+                + ", description='"
+                + description
+                + '\''
+                + ", price="
+                + price
+                + ", isVegetarian="
+                + isVegetarian
+                + ", isDietaryRestriction="
+                + isDietaryRestriction
+                + ", restaurant="
+                + restaurant
+                + '}';
+    }
 }

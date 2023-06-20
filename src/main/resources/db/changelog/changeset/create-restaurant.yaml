@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-restaurant
+      author: artur
+      changes:
+        - createTable:
+            tableName: RESTAURANT
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                  defaultValueSequenceNext: 'restaurant_sequence'
+              - column:
+                  name: USERNAME
+                  type: varchar(512)
+              - column:
+                  name: PASSWORD
+                  type: varchar(2048)
