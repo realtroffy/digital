@@ -7,7 +7,7 @@ on:
 
 jobs:
   checkstyle:
-    runs-on: ubuntu-20.04
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v3
@@ -16,7 +16,7 @@ jobs:
           java-version: 11
       - uses: actions/cache@v3
         with:
-          path: ~/.m2/repository
+          path: C:\actions\cache
           key: maven-${{ hashFiles('**/pom.xml')}}
           restore-keys: |
             maven-
