@@ -41,7 +41,7 @@ build/
 
 ### VS Code ###
 .vscode/
-/compiler.xml
+/.idea/compiler.xml
 /encodings.xml
 /jarRepositories.xml
 /misc.xml
