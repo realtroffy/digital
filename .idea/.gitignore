@@ -41,3 +41,10 @@ build/
 
 ### VS Code ###
 .vscode/
+/compiler.xml
+/encodings.xml
+/jarRepositories.xml
+/misc.xml
+/vcs.xml
+/workspace.xml
+/shelf/check_github_actions/shelved.patch
