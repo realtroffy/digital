@@ -18,8 +18,8 @@ jobs:
       - uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: ${{ secrets.DOCKERHUB_USERNAME }}/digital
+          tags: 0.0.${{ github.run_number }
           addLatest: true
-          addTimestamp: true
           dockerfile: Dockerfile
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
