@@ -19,6 +19,7 @@ jobs:
         with:
           image: ${{ secrets.DOCKERHUB_USERNAME }}/digital
           addLatest: true
+          addTimestamp: true
           dockerfile: Dockerfile
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
