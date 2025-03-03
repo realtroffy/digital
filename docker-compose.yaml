@@ -9,6 +9,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/digitaldb
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=123
+    labels:
+      - com.centurylinklabs.watchtower.enable=true  # Включаем watchtower для этого контейнера
     depends_on:
       - db
 
@@ -34,6 +36,18 @@ services:
       - "5050:80"
     depends_on:
       - db
+
+  #Сервис, который опрашивает докер хаб, если появился более новый image,
+  #то скачивает новый образ и запускает новый контейнер с этим образом
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_POLL_INTERVAL=120  # Проверять обновления каждые 120 секунд
+      - WATCHTOWER_LABEL_ENABLE=true  # Обновлять только контейнеры с меткой com.centurylinklabs.watchtower.enable=true
+    restart: unless-stopped
 
 volumes:
   pg:
